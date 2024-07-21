@@ -51,11 +51,11 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Computer" Binding="{Binding ComputerName}" Width="*"/>
                         <DataGridTextColumn Header="User" Binding="{Binding UserName}" Width="*"/>
-                        <DataGridTextColumn Header="IP Address" Binding="{Binding IpAddress}" Width=".50*"/>
+                        <DataGridTextColumn Header="IP Address" Binding="{Binding IpAddress}" Width=".70*"/>
                         <DataGridTextColumn Header="Uptime" Binding="{Binding Uptime}" Width=".65*"/>
                         <DataGridTextColumn Header="O/S" Binding="{Binding Os}" Width=".65*"/>
                         <DataGridTextColumn Header="C Drive" Binding="{Binding Drive}" Width=".50*"/>
-                        <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width=".80*"/>
+                        <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width=".60*"/>
                         <DataGridTextColumn Header="Last Contact" Binding="{Binding LastContact}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
