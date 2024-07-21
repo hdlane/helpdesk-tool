@@ -159,16 +159,6 @@ namespace HelpdeskTool
 
         private void computersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Might be able to remove this statement
-            if (this.computersDataGrid.SelectedItem != null)
-            {
-                DataRowView drv = (DataRowView)computersDataGrid.SelectedItem;
-
-                string computername = (drv["ComputerName"]).ToString();
-                string currentuser = (drv["UserName"]).ToString();
-                string lastContact = (drv["LastContact"]).ToString();
-            }
-
             if (this.computersDataGrid.SelectedItem == null)
             {
                 connectButton.IsEnabled = false;
