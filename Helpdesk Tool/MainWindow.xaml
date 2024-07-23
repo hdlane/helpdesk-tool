@@ -50,13 +50,13 @@
                 <DataGrid DockPanel.Dock="Top" x:Name="computersDataGrid" Margin="0 0 0 0" AutoGenerateColumns="False" SelectionChanged="computersDataGrid_SelectionChanged" SelectedItem="{Binding ComputerName}" SelectionUnit="FullRow" SelectionMode="Single" HeadersVisibility="Column" IsReadOnly="True" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeColumns="False"  BorderBrush="#000" BorderThickness="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Computer" Binding="{Binding ComputerName}" Width="*"/>
-                        <DataGridTextColumn Header="User" Binding="{Binding UserName}" Width="*"/>
-                        <DataGridTextColumn Header="IP Address" Binding="{Binding IpAddress}" Width=".70*"/>
-                        <DataGridTextColumn Header="Uptime" Binding="{Binding Uptime}" Width=".65*"/>
-                        <DataGridTextColumn Header="O/S" Binding="{Binding Os}" Width=".65*"/>
+                        <DataGridTextColumn Header="User" Binding="{Binding UserName}" Width=".60*"/>
+                        <DataGridTextColumn Header="IP Address" Binding="{Binding IpAddress}" Width=".60*"/>
+                        <DataGridTextColumn Header="Uptime" Binding="{Binding Uptime}" Width=".40*"/>
+                        <DataGridTextColumn Header="O/S" Binding="{Binding Os}" Width=".90*"/>
                         <DataGridTextColumn Header="C Drive" Binding="{Binding Drive}" Width=".50*"/>
-                        <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width=".60*"/>
-                        <DataGridTextColumn Header="Last Contact" Binding="{Binding LastContact}" Width="*"/>
+                        <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width=".90*"/>
+                        <DataGridTextColumn Header="Last Contact" Binding="{Binding LastContact}" Width=".80*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </DockPanel>
