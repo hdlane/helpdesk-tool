@@ -205,7 +205,7 @@ namespace HelpdeskTool
 
         private void FileExit_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void SettingsEdit_Click(object sender, RoutedEventArgs e)
