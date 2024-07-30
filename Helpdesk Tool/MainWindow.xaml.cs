@@ -85,8 +85,16 @@ namespace HelpdeskTool
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ComputersDataTable computersDataTable = ComputersDataTable.GetInstance();
-            computersDataGrid.ItemsSource = computersDataTable.Dt.DefaultView;
-            filterTextBox.Focus();
+            if (computersDataTable.Dt.Rows.Count > 0)
+            {
+                computersDataGrid.ItemsSource = computersDataTable.Dt.DefaultView;
+                filterTextBox.IsEnabled = true;
+                filterTextBox.Focus();
+            }
+            else
+            {
+                filterTextBox.IsEnabled = false;
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -173,14 +181,16 @@ namespace HelpdeskTool
         {
             ComputersDataTable computersDataTable = ComputersDataTable.GetInstance();
             computersDataTable.UpdateDataTableAsync();
-            if (computersDataTable.Dt.Rows.Count == 0)
+            if (computersDataTable.Dt.Rows.Count > 0)
             {
-                refreshTextBox.Text = "No data available";
+                filterTextBox.IsEnabled = true;
+                var currentTime = DateTime.Now;
+                refreshTextBox.Text = $"Last refresh: {currentTime}";
             }
             else
             {
-                var currentTime = DateTime.Now;
-                refreshTextBox.Text = $"Last refresh: {currentTime}";
+                filterTextBox.IsEnabled = false;
+                refreshTextBox.Text = "No data available";
             }
 
             DataView computersDataView = computersDataTable.Dt.DefaultView;
@@ -193,5 +203,14 @@ namespace HelpdeskTool
             InitializeComponent();
         }
 
+        private void FileExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SettingsEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -14,6 +14,14 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <DockPanel Margin="0,0,10,0" Grid.Column="0">
+                <Menu DockPanel.Dock="Top" Background="White">
+                    <MenuItem Header="_File">
+                        <MenuItem Header="_Exit" Click="FileExit_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="_Settings">
+                        <MenuItem Header="_Edit" Click="SettingsEdit_Click"/>
+                    </MenuItem>
+                </Menu>
                 <Border DockPanel.Dock="Top" BorderThickness="1" BorderBrush="#000">
                     <StackPanel Background="#EEE">
                         <TextBlock FontWeight="SemiBold" Text="Tools" Grid.Column="0" HorizontalAlignment="Center" Margin="0 10 0 10"/>
