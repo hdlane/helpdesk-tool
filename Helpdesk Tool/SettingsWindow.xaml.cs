@@ -3,7 +3,7 @@
 namespace Helpdesk_Tool
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for SettingsWindow.xaml
     /// </summary>
     public partial class SettingsWindow : Window
     {

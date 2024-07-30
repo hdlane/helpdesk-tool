@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Net.Http;
 using System.Text.Json;
+using Helpdesk_Tool;
 
 namespace HelpdeskTool
 {
@@ -210,7 +211,9 @@ namespace HelpdeskTool
 
         private void SettingsEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            SettingsWindow window = new SettingsWindow();
+            window.Owner = this;
+            window.ShowDialog();
         }
     }
 }
