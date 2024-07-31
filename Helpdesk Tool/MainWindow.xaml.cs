@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Net.Http;
 using System.Text.Json;
 using Helpdesk_Tool;
+using System.Security.Policy;
 
 namespace HelpdeskTool
 {
@@ -15,13 +16,13 @@ namespace HelpdeskTool
     {
         public class ComputersDataTable : DataTable
         {
-            private string Url = "http://127.0.0.1:5000/";
             private static ComputersDataTable? instance;
             public string? Json { get; set; }
             public DataTable? Dt { get; set; }
             private ComputersDataTable()
             {
-                Json = GetJsonAsync(Url).Result;
+                string? Server = Helpdesk_Tool.Properties.Settings.Default.Server;
+                Json = GetJsonAsync(Server).Result;
                 Dt = GetDataTableFromJson();
             }
 
@@ -78,6 +79,7 @@ namespace HelpdeskTool
 
             public void UpdateDataTableAsync()
             {
+                string? Url = Helpdesk_Tool.Properties.Settings.Default.Server;
                 Json = GetJsonAsync(Url).Result;
                 Dt = GetDataTableFromJson();
             }

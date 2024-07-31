@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Helpdesk_Tool"
         mc:Ignorable="d"
-        Title="Settings" Height="150" Width="400">
-    <Border Padding="20">
+        Title="Settings" Height="150" Width="400" MinHeight="150" MinWidth="400">
+    <Border Padding="10">
         <Grid>
         <StackPanel Background="White">
-                <TextBlock Text="Endpoint Server URL" />
+                <TextBlock Text="Server URL" />
                 <!-- Prefill textbox with current URL -->
                 <TextBox x:Name="endpointServerUrl" />
-                <Grid HorizontalAlignment="Right" Margin="0 15 0 15">
+                <TextBlock x:Name="settingsSaveTextBlock" HorizontalAlignment="Right" FontSize="12" />
+                <Grid HorizontalAlignment="Right" Margin="0 5 0 0 ">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
