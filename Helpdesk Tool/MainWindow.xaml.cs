@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Net.Http;
 using System.Text.Json;
 using Helpdesk_Tool;
-using System.Security.Policy;
+using System.IO;
 
 namespace HelpdeskTool
 {
@@ -21,7 +21,8 @@ namespace HelpdeskTool
             public DataTable? Dt { get; set; }
             private ComputersDataTable()
             {
-                string? Server = Helpdesk_Tool.Properties.Settings.Default.Server;
+                Settings Settings = Settings.GetInstance();
+                string? Server = Settings.Server;
                 Json = GetJsonAsync(Server).Result;
                 Dt = GetDataTableFromJson();
             }
@@ -79,14 +80,87 @@ namespace HelpdeskTool
 
             public void UpdateDataTableAsync()
             {
-                string? Url = Helpdesk_Tool.Properties.Settings.Default.Server;
-                Json = GetJsonAsync(Url).Result;
+                Settings Settings = Settings.GetInstance();
+                string? Server = Settings.Server;
+                Json = GetJsonAsync(Server).Result;
                 Dt = GetDataTableFromJson();
+            }
+        }
+
+        public class Settings
+        {
+            public string SettingsFile = "settings.json";
+            private static Settings? instance;
+            private string? _server;
+            public string? Server {
+                get { 
+                    GetSettings();
+                    return _server;
+                }
+                set { 
+                    SetSettings(value); 
+                }
+            }
+
+            private Settings()
+            {
+                GetSettings();
+            }
+            public static Settings GetInstance()
+            {
+                if (instance == null)
+                {
+                    instance = new Settings();
+                }
+                return instance;
+            }
+            private void GetSettings()
+            {
+                if (File.Exists(SettingsFile))
+                {
+                    var json = File.ReadAllText(SettingsFile);
+                    Dictionary<string, string> settings = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
+                    if (settings.ContainsKey("Server"))
+                    {
+                        _server = settings["Server"];
+                    }
+                    else
+                    {
+                        Dictionary<string, string> defaultSettings = new Dictionary<string, string>
+                        {
+                            { "Server", "http://127.0.0.1:5000" }
+                        };
+                        var defaultJson = JsonSerializer.Serialize<Dictionary<string, string>>(defaultSettings);
+                        File.WriteAllText(SettingsFile, defaultJson);
+                        _server = "http://127.0.0.1:5000";
+                    }
+                }
+                else
+                {
+                    Dictionary<string, string> defaultSettings = new Dictionary<string, string>
+                    {
+                        { "Server", "http://127.0.0.1:5000" }
+                    };
+                    var json = JsonSerializer.Serialize<Dictionary<string, string>>(defaultSettings);
+                    File.WriteAllText(SettingsFile, json);
+                    _server = "http://127.0.0.1:5000";
+                }
+            }
+            private void SetSettings(string url)
+            {
+                Dictionary<string, string> settings = new Dictionary<string, string>
+                {
+                    { "Server", url}
+                };
+                var json = JsonSerializer.Serialize<Dictionary<string, string>>(settings);
+                File.WriteAllText(SettingsFile, json);
+                _server = url;
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Settings.GetInstance();
             ComputersDataTable computersDataTable = ComputersDataTable.GetInstance();
             if (computersDataTable.Dt.Rows.Count > 0)
             {

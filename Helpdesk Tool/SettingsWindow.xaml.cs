@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using HelpdeskTool;
 
 namespace Helpdesk_Tool
 {
@@ -10,7 +11,9 @@ namespace Helpdesk_Tool
         public SettingsWindow()
         {
             InitializeComponent();
-            endpointServerUrl.Text = Helpdesk_Tool.Properties.Settings.Default.Server;
+            MainWindow.Settings Settings = MainWindow.Settings.GetInstance();
+            string? Server = Settings.Server;
+            endpointServerUrl.Text = Server;
             cancelButton.Content = "Cancel";
         }
 
@@ -22,8 +25,8 @@ namespace Helpdesk_Tool
         {
             if (endpointServerUrl.Text != null)
             {
-                Helpdesk_Tool.Properties.Settings.Default.Server = endpointServerUrl.Text;
-                Helpdesk_Tool.Properties.Settings.Default.Save();
+                MainWindow.Settings Settings = MainWindow.Settings.GetInstance();
+                Settings.Server = endpointServerUrl.Text;
                 settingsSaveTextBlock.Text = $"URL Saved: {endpointServerUrl.Text}";
                 cancelButton.Content = "Close";
             }
