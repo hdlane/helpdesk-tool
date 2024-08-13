@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:HelpdeskTool"
         mc:Ignorable="d"
         Title="Helpdesk Tool" Height="475" Width="900"
+        Icon="HelpdeskTool.ico"
         Loaded="Window_Loaded" MinWidth="700" MinHeight="300"
         Closed="Window_Closed">
     <Border Padding="20" >
