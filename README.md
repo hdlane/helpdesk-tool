@@ -6,7 +6,7 @@ Helpdesk Tool is a Windows WPF application built in C# that allows the user to v
 
 ### Goal
 
-The goal of Helpdesk Tool is to provide a helpdesk team a way to support their end users quickly. This is done by allowing them to see computer information at a glance and search for users / computers to connect quickly.
+The goal of Helpdesk Tool is to provide a helpdesk team a way to support their end users quickly. This is done by allowing them to see computer information at a glance and search for users / computers to connect.
 
 ### Background
 
@@ -21,6 +21,10 @@ In the past, I had used remote management tools to connect to Windows PCs and of
 ## Installation
 
 ### Requirements
+
+* Windows 10 / 11
+* .NET Framework 8
+* dotnet CLI - Installed along with [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/windows)
 
 ## Usage
 
