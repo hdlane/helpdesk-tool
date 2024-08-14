@@ -61,6 +61,11 @@ namespace HelpdeskTool
 
                 var dataArray = JsonSerializer.Deserialize<JsonElement[]>(Json);
 
+                if (dataArray.Length == 0)
+                {
+                    return dataTable;
+                }
+
                 foreach (var property in dataArray[0].EnumerateObject())
                 {
                     dataTable.Columns.Add(property.Name);
