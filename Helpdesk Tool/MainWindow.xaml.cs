@@ -234,6 +234,7 @@ namespace HelpdeskTool
             DataView computersDataView = computersDataTable.Dt.DefaultView;
             computersDataView.RowFilter = 
                 "ComputerName LIKE '%" + filterTextBox.Text + 
+                "%' OR IpAddress LIKE '%" + filterTextBox.Text +
                 "%' OR UserName LIKE '%" + filterTextBox.Text + "%'";
             computersDataGrid.ItemsSource = computersDataView;
             computersDataGrid.SelectedIndex = 0;
