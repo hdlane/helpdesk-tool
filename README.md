@@ -22,9 +22,19 @@ In the past, I had used remote management tools to connect to Windows PCs and of
 
 ### Requirements
 
-* Windows 10 / 11
-* .NET Framework 8
-* dotnet CLI - Installed along with [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/windows)
+#### To Run
+
+* Windows 10 / 11 x64 or Arm64
+* The application - Can be downloaded from [Releases](https://github.com/hdlane/helpdesk-tool/releases)
+* .NET 8.0 Desktop Runtime to run application
+    * You will be prompted during the first launch of the app to download the runtime, or you can download below
+    * [x64](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.8-windows-x64-installer?cid=getdotnetcore)
+    * [Arm64](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.8-windows-arm64-installer?cid=getdotnetcore)
+
+#### To Develop
+
+* dotnet CLI to run, build, and publish the project - Installed along with [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/windows)
+* [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) will helpful as well
 
 ## Usage
 
